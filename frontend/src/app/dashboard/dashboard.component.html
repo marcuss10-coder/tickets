@@ -1,0 +1,13 @@
+<div *ngIf="data" style="padding: 20px; font-family: sans-serif;">
+  <h1>Resumen General del Sistema</h1>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+    <div style="border: 2px solid blue; padding: 15px; border-radius: 10px;">
+      <p>Clientes Registrados</p> <h3>{{data.totalClients}}</h3>
+    </div>
+    <div style="border: 2px solid blue; padding: 15px; border-radius: 10px;">
+      <p>Eventos Activos</p> <h3>{{data.activeEvents}}</h3>
+    </div>
+  </div>
+  <h4>Próximos Eventos</h4>
+  <ul><li *ngFor="let ev of data.recentEvents">{{ev.name}}</li></ul>
+</div>

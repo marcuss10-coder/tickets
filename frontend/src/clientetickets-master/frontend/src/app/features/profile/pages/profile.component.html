@@ -1,0 +1,33 @@
+<div class="perfil-container">
+
+  <h2>Mi Perfil</h2>
+
+  <!-- Cargando -->
+  <div *ngIf="cargando">
+    Cargando información...
+  </div>
+
+  <!-- Perfil cargado -->
+  <div *ngIf="!cargando">
+    <ng-container *ngIf="usuario; else errorTemplate">
+
+      <p><strong>Nombre:</strong> {{ usuario.nameUsers }}</p>
+      <p><strong>Email:</strong> {{ usuario.emailUser }}</p>
+      <p><strong>Usuario:</strong> {{ usuario.userName }}</p>
+      <p><strong>Teléfono:</strong> {{ usuario.phoneUser || 'No registrado' }}</p>
+      <p><strong>Estado:</strong> {{ usuario.stateUser }}</p>
+      <p><strong>Roles:</strong> {{ rolesTexto }}</p>
+
+      <button>
+        Editar perfil
+      </button>
+
+    </ng-container>
+
+    <!-- Template para mostrar error -->
+    <ng-template #errorTemplate>
+      {{ error || 'No se pudo cargar el perfil' }}
+    </ng-template>
+  </div>
+
+</div>

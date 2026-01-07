@@ -1,0 +1,22 @@
+<!-- Sidebar solo visible para rutas de administración -->
+<div class="layout" *ngIf="router.url !== '/login' && router.url !== '/registro'">
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="#" (click)="irDashboard($event)">Inicio</a></li>
+        <li><a href="#" (click)="irClientes($event)">Gestionar Clientes</a></li>
+        <li><a href="#" (click)="irEventos($event)">Eventos</a></li>
+        <!-- Agrega más enlaces si los necesitas -->
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<!-- Rutas públicas (login y registro) sin sidebar -->
+<div *ngIf="router.url === '/login' || router.url === '/registro'">
+  <router-outlet></router-outlet>
+</div>

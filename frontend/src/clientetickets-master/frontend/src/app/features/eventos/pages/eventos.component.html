@@ -1,0 +1,70 @@
+<header class="topbar">
+<h2>EVENTOS</h2>
+<span class="user">Administrador<br> Miguel Morales</span>
+</header>
+
+<div class="catalog-container">
+  <div class="catalog-header">
+    <div class="search-section">
+      <input
+        type="text"
+        placeholder="Buscar eventos..."
+        class="search-input"
+        (keyup.enter)="buscarPeliculas($event)"
+        [(ngModel)]="terminoBusqueda"
+      />
+      <div class="badge-container">
+        <span class="badge">Función cine</span>
+      </div>
+    </div>
+    
+    <div class="header-actions">
+      <button class="btn btn-add" (click)="abrirFormulario()">Agregar película</button>
+    </div>
+  </div>
+  
+  <div class="cards-grid">
+    <div class="card" *ngFor="let p of peliculas">
+      <img [src]="p.imageUrl" alt="{{ p.nameEvent }}" />
+      <div class="card-content">
+        <h4>{{ p.nameEvent }}</h4>
+        <div class="card-details-section">
+          <p class="card-field" *ngIf="p.descriptionEvent"><strong>Descripción:</strong> {{ p.descriptionEvent }}</p>
+          <p class="card-field" *ngIf="p.microserviceEventId"><strong>Género:</strong> {{ p.microserviceEventId }}</p>
+          <p class="card-field" *ngIf="p.venue"><strong>Lugar:</strong> {{ p.venue }}</p>
+          <p class="card-field" *ngIf="p.dateTimeEvent"><strong>Fecha:</strong> {{ p.dateTimeEvent | date:'short' }}</p>
+          <p class="card-field" *ngIf="p.capacity !== undefined && p.capacity !== null"><strong>Capacidad:</strong> {{ p.capacity }}</p>
+        </div>
+        <div class="card-details">
+          <span class="card-badge" *ngIf="p.eventType">{{ p.eventType === 'cinema' ? 'Función cine' : p.eventType }}</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button class="btn-card-action btn-edit-card" (click)="editar(p)">Editar</button>
+        <button class="btn-card-action btn-delete-card" (click)="eliminar(p.idEvent)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CRUD -->
+<div class="modal" *ngIf="mostrarFormulario">
+<div class="modal-content">
+<h3>{{ editando ? 'Editar película' : 'Nueva película' }}</h3>
+
+<form [formGroup]="form" (ngSubmit)="guardar()">
+<input formControlName="nameEvent" placeholder="Título" />
+<textarea formControlName="descriptionEvent" placeholder="Descripción"></textarea>
+<input formControlName="microserviceEventId" placeholder="Género" />
+<input formControlName="venue" placeholder="Lugar" />
+<input type="datetime-local" formControlName="dateTimeEvent" />
+<input type="number" formControlName="capacity" placeholder="Capacidad" />
+<input formControlName="imageUrl" placeholder="Imagen URL" />
+
+<div class="modal-actions">
+<button type="submit">Guardar</button>
+<button type="button" (click)="cerrarFormulario()">Cancelar</button>
+</div>
+</form>
+</div>
+</div>

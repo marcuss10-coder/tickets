@@ -1,0 +1,24 @@
+app/
+│
+├── core/
+│   └── services/
+│       ├── dashboard.service.ts
+│       └── events.service.ts
+│
+├── dashboard/
+│   ├── dashboard.component.ts
+│   ├── dashboard.component.html
+│   └── dashboard.component.css
+│
+├── explore-events/
+│   ├── explore-events.component.ts
+│   ├── explore-events.component.html
+│   └── explore-events.component.css
+│
+├── shared/
+│   └── components/
+│       ├── stat-card/
+│       ├── event-list/
+│       └── client-list/
+│
+└── app-routing.module.ts

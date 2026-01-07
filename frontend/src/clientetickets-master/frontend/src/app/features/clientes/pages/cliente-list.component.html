@@ -1,0 +1,87 @@
+<!-- CONTENEDOR GENERAL (separa del sidebar) -->
+<div class="clientes-page">
+
+  <!-- TITULO CENTRADO -->
+  <h2 class="titulo-clientes">Listado de Clientes</h2>
+
+  <!-- CARDS -->
+  <div class="cards-container">
+    <div class="cliente-card" *ngFor="let cliente of clientes">
+
+      <!-- MENU 3 PUNTOS -->
+      <div class="menu-container">
+        <button class="menu-btn" (click)="cliente.menu = !cliente.menu">⋮</button>
+
+        <div class="menu" *ngIf="cliente.menu">
+          <button (click)="editarDesdeMenu(cliente)">Editar</button>
+          <button (click)="eliminarDesdeMenu(cliente)">Eliminar</button>
+        </div>
+      </div>
+
+      <h3>{{ cliente.nombreCliente }}</h3>
+
+      <p><strong>Cédula:</strong> {{ cliente.cedulaCliente }}</p>
+      <p><strong>Email:</strong> {{ cliente.emailCliente || '—' }}</p>
+      <p><strong>Celular:</strong> {{ cliente.telefonoCliente || '—' }}</p>
+      <p><strong>Dirección:</strong> {{ cliente.direccionCliente || '—' }}</p>
+
+      <!-- ESTADO -->
+      <span class="estado activo">Activo</span>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL EDITAR CLIENTE -->
+<div *ngIf="mostrarModal" class="modal-backdrop">
+  <div class="modal">
+    <h2>Editar Cliente</h2>
+
+    <form (ngSubmit)="guardarEdicion()">
+
+      <input
+        type="text"
+        [(ngModel)]="clienteEditando.cedulaCliente"
+        name="cedulaCliente"
+        placeholder="Cédula"
+        required
+      />
+
+      <input
+        type="text"
+        [(ngModel)]="clienteEditando.nombreCliente"
+        name="nombreCliente"
+        placeholder="Nombre"
+        required
+      />
+
+      <input
+        type="email"
+        [(ngModel)]="clienteEditando.emailCliente"
+        name="emailCliente"
+        placeholder="Email"
+      />
+
+      <input
+        type="text"
+        [(ngModel)]="clienteEditando.telefonoCliente"
+        name="telefonoCliente"
+        placeholder="Celular"
+      />
+
+      <input
+        type="text"
+        [(ngModel)]="clienteEditando.direccionCliente"
+        name="direccionCliente"
+        placeholder="Dirección"
+      />
+
+      <div class="acciones">
+        <button type="submit" class="btn-guardar">Guardar</button>
+        <button type="button" class="btn-cancelar" (click)="cerrarModal()">Cancelar</button>
+      </div>
+
+    </form>
+  </div>
+</div>

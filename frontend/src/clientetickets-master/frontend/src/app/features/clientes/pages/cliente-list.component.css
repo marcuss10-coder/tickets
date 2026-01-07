@@ -1,0 +1,191 @@
+/* =========================
+   CONTENEDOR GENERAL
+   ========================= */
+.clientes-page {
+  margin-left: 40px; /* separación de la sidebar */
+  padding-right: 20px;
+}
+
+/* =========================
+   TITULO
+   ========================= */
+.titulo-clientes {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* =========================
+   CONTENEDOR DE CARDS
+   ========================= */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+/* =========================
+   CARD
+   ========================= */
+.cliente-card {
+  background: #f1f1f1;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.cliente-card h3 {
+  margin-bottom: 10px;
+}
+
+.cliente-card p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* =========================
+   MENU 3 PUNTOS
+   ========================= */
+.menu-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.menu button {
+  width: 100%;
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu button:hover {
+  background: #eeeeee;
+}
+
+/* =========================
+   ESTADO
+   ========================= */
+.estado {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.estado.activo {
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+  color: #ffffff;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 30px;
+  width: 480px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  animation: aparecer 0.25s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal h2 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 25px;
+}
+
+/* =========================
+   FORMULARIO
+   ========================= */
+.modal form input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 14px;
+}
+
+.modal form input:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
+}
+
+/* =========================
+   BOTONES
+   ========================= */
+.acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-guardar {
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-cancelar {
+  background: #9e9e9e;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}

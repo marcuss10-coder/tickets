@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  height: 60px;
+  background-color: #1f2937; /* gris oscuro */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.user-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.user-btn:hover {
+  text-decoration: underline;
+}

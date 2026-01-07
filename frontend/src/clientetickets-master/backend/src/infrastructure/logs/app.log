@@ -1,0 +1,13 @@
+2025-12-10 14:59:25 [INFO]: El servidor está escuchando en el puerto 5000
+2025-12-10 14:59:26 [INFO]: Base de datos conectada
+2025-12-10 14:59:26 [INFO]: Conexión establecida con la base de datos
+2025-12-10 14:59:27 [INFO]: ✅ Mongoose conectado a MongoDB en: edisoncloud-shard-00-02.ux4si.mongodb.net
+2025-12-10 14:59:27 [INFO]: 🚀 MongoDB conectado correctamente
+2025-12-10 14:59:31 [INFO]: Base de Datos sincronizadas
+2025-12-10 15:28:37 [INFO]: ⚠️  Mongoose desconectado de MongoDB
+2025-12-10 17:49:58 [INFO]: El servidor está escuchando en el puerto 5000
+2025-12-10 17:49:58 [INFO]: Base de datos conectada
+2025-12-10 17:49:58 [INFO]: Conexión establecida con la base de datos
+2025-12-10 17:50:00 [INFO]: ✅ Mongoose conectado a MongoDB en: edisoncloud-shard-00-01.ux4si.mongodb.net
+2025-12-10 17:50:00 [INFO]: 🚀 MongoDB conectado correctamente
+2025-12-10 17:50:08 [INFO]: Base de Datos sincronizadas
