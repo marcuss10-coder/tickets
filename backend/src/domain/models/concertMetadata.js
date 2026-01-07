@@ -61,7 +61,20 @@ const movieMetadata = {
     precio: Number,
     trailer: String
 };
+const concertMetadata = new mongoose.Schema({
+  titulo: String,
+  sinopsis: String,
+  fechaHora: Date,
+  sala: String,
+  precio: Number,
+  trailer: String,
+  // ... campos existentes
+}, {
+  timestamps: true,
+  collection: 'concertMetadata'
+});
 
+module.exports = mongoose.model('ConcertMetadata', concertMetadata);
 module.exports = movieMetadata;
 const ConcertMetadata = mongoose.model('ConcertMetadata', concertMetadataSchema);
 module.exports = ConcertMetadata;

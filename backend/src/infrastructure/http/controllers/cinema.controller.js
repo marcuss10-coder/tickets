@@ -575,6 +575,44 @@ const comprarTicket = (req, res) => {
     console.log("Procesando compra de:", compra);
     res.status(200).json({ mensaje: "Ticket reservado con éxito" });
 };
+const MovieMetadata = require('../../../domain/models/movieMetadata');
 
+// Agregar estas funciones:
+exports.crearPelicula = async (req, res) => {
+  try {
+    const pelicula = new MovieMetadata(req.body);
+    await pelicula.save();
+    res.status(201).json(pelicula);
+  } catch (error) {
+    res.status(400).json({ mensaje: 'Error al crear película', error });
+  }
+};
+
+exports.obtenerTodasPeliculas = async (req, res) => {
+  try {
+    const peliculas = await MovieMetadata.find();
+    res.json(peliculas);
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error al obtener películas', error });
+  }
+};
+
+exports.actualizarPelicula = async (req, res) => {
+  try {
+    const pelicula = await MovieMetadata.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.json(pelicula);
+  } catch (error) {
+    res.status(400).json({ mensaje: 'Error al actualizar película', error });
+  }
+};
+
+exports.eliminarPelicula = async (req, res) => {
+  try {
+    await MovieMetadata.findByIdAndDelete(req.params.id);
+    res.json({ mensaje: 'Película eliminada' });
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error al eliminar película', error });
+  }
+};
 module.exports = { listarCartelera, comprarTicket };
 module.exports = cinemaCtl;
