@@ -561,4 +561,20 @@ cinemaCtl.obtenerEstadisticas = async (req, res) => {
     }
 };
 
+// Simulación de datos para que el frontend vea algo
+const funciones = [
+    { id: 1, titulo: 'Película 1', sinopsis: '... ', fechaHora: '2024-05-10 18:00', sala: 'Sala 1', precio: 5000 },
+];
+
+const listarCartelera = (req, res) => {
+    res.status(200).json(funciones);
+};
+
+const comprarTicket = (req, res) => {
+    const compra = req.body; // Aquí llega lo que el usuario eligió
+    console.log("Procesando compra de:", compra);
+    res.status(200).json({ mensaje: "Ticket reservado con éxito" });
+};
+
+module.exports = { listarCartelera, comprarTicket };
 module.exports = cinemaCtl;

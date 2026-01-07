@@ -11,3 +11,12 @@
   <h4>Próximos Eventos</h4>
   <ul><li *ngFor="let ev of data.recentEvents">{{ev.name}}</li></ul>
 </div>
+
+<div *ngIf="dashboardData" style="margin-top: 20px; padding: 20px; background: #f4f4f4;">
+  <h3>Cartelera de Cine</h3>
+  <div *ngFor="let f of dashboardData.funciones" style="border-bottom: 1px solid #ccc; padding: 10px;">
+    <strong>{{ f.titulo }}</strong> - {{ f.sinopsis }} <br>
+    <span>Sala: {{ f.sala }} | Hora: {{ f.fecha }} | Precio: ${{ f.precio }}</span> <br>
+    <button (click)="seleccionarFuncion(f)">Elegir y Comprar</button>
+  </div>
+</div>

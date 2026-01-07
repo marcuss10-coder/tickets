@@ -35,5 +35,12 @@ const cinemaDetailsSchema = new mongoose.Schema({
     timestamps: true,
     collection: 'cinemaDetails'
 });
+const cinemaDetails = {
+    fechaHora: Date,
+    sala: String,
+    precio: Number
+};
+module.exports = cinemaDetails;
+
 const CinemaDetails = mongoose.model('CinemaDetails', cinemaDetailsSchema);
 module.exports = CinemaDetails;
